@@ -55,16 +55,10 @@
     .quiz .options button{background:#fff;border:2px solid #e5e7eb;border-radius:14px;padding:12px;font-weight:700;cursor:pointer}
     .quiz .options button:hover{border-color:#c7d2fe}
     .score{display:inline-flex;align-items:center;gap:8px;background:#10b981;color:#fff;border-radius:999px;padding:6px 10px;font-weight:800}
-    /* mensagens */
-    .msg-section input{width:70%;padding:10px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px}
-    .msg-section button{padding:10px 16px;border-radius:12px;font-weight:700;cursor:pointer}
-    .msg-list{margin-top:16px;display:flex;flex-direction:column;gap:6px}
-    .msg-item{background:#f1f5f9;padding:10px;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,.05)}
     @media (max-width: 860px){
       .hero-inner{grid-template-columns:1fr}
       .g-2{grid-template-columns:1fr}
       .g-3{grid-template-columns:1fr}
-      .msg-section input{width:100%}
     }
   </style>
 </head>
@@ -102,8 +96,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Entenda o Consentimento -->
+<!-- Entenda o Consentimento -->
 <section class="consentimento">
   <h2>🤝 Entenda o Consentimento</h2>
   <div class="consentimento-container">
@@ -126,6 +119,7 @@
       <h3>🔄 Escolhas Conscientes</h3>
       <p>As decisões devem ser feitas de forma consciente, sem pressões ou manipulações, garantindo segurança e confiança.</p>
     </div>
+    <img alt="Ilustração leve representando respeito e acolhimento" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop" style="width:100%;border-radius:20px;box-shadow:0 20px 50px rgba(30,64,175,.15)"/>
   </div>
 
   <style>
@@ -192,11 +186,6 @@
   </style>
 </section>
 
-  <div class="container" style="margin-top:24px;text-align:center">
-    <img alt="Ilustração leve representando respeito e acolhimento" 
-     src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop" 
-     style="width:100%;border-radius:20px;box-shadow:0 20px 50px rgba(30,64,175,.15)"/>
-</section>
 <!-- Novos Tópicos sobre Relacionamentos Saudáveis -->
 <section class="relacionamentos-saudaveis">
   <h2>🤝 Crescendo Juntos: Princípios de Relacionamentos Saudáveis</h2>
@@ -298,7 +287,34 @@
     }
   </style>
 </section>
-   
+<!-- CAMPANHA -->
+    <section id="campanha">
+      <div class="container">
+        <h2 style="text-align:center">Kit de <span style="color:#4f46e5">Campanha</span> para Redes</h2>
+        <div class="grid g-2" style="margin-top:12px">
+          <div class="card">
+            <b>Post 1 — Frase de impacto</b>
+            <p class="muted" id="p1">Sem consentimento, não existe respeito. Amor saudável é leve, seguro e livre.</p>
+            <button class="btn ghost" data-copy="#p1">📋 Copiar</button>
+          </div>
+          <div class="card">
+            <b>Post 2 — 3 sinais do saudável</b>
+            <p class="muted" id="p2">Diálogo. Confiança. Respeito. Ciúme e controle não são prova de amor.</p>
+            <button class="btn ghost" data-copy="#p2">📋 Copiar</button>
+          </div>
+          <div class="card">
+            <b>Post 3 — Dica prática</b>
+            <p class="muted" id="p3">Se não houver um “sim” claro, a resposta é não. Combine limites antes de avançar.</p>
+            <button class="btn ghost" data-copy="#p3">📋 Copiar</button>
+          </div>
+          <div class="card">
+            <b>Legenda pronta + hashtags</b>
+            <p class="muted" id="p4">Sem consentimento, não há nós. Eu escolho respeito todos os dias. #ConsentimentoImporta #RespeitoÉBase #RelacionamentoSaudável #DigaSimAoRespeito</p>
+            <button class="btn ghost" data-copy="#p4">📋 Copiar</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- QUIZ -->
 <section id="quiz">
   <div class="container card quiz">
@@ -405,65 +421,58 @@ function nextQuiz() {
 
 loadQuiz();
 </script>
-    <!-- MENSAGENS -->
+
+    <!-- MENSAGENS CORRIGIDAS -->
     <section id="mensagens">
-      <div class="container card msg-section">
-        <h2>Como você está se sentindo agora?</h2>
-        <p class="muted">Envie anonimamente e podemos sortear uma mensagem para dar apoio.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
-          <input type="text" id="msg-input" placeholder="Digite sua mensagem aqui..." />
-          <button class="btn primary" id="msg-send">Enviar</button>
-          <button class="btn ghost" id="msg-random">Sortear uma mensagem</button>
-        </div>
-        <div class="msg-list" id="msg-list"></div>
-      </div>
-    </section>
-
-    <!-- O RESTANTE DO SITE PERMANECE IGUAL -->
-    <!-- CAMPANHA -->
-    <section id="campanha">
-      <div class="container">
-        <h2 style="text-align:center">Kit de <span style="color:#4f46e5">Campanha</span> para Redes</h2>
-        <div class="grid g-2" style="margin-top:12px">
-          <div class="card">
-            <b>Post 1 — Frase de impacto</b>
-            <p class="muted" id="p1">Sem consentimento, não existe respeito. Amor saudável é leve, seguro e livre.</p>
-            <button class="btn ghost" data-copy="#p1">📋 Copiar</button>
-          </div>
-          <div class="card">
-            <b>Post 2 — 3 sinais do saudável</b>
-            <p class="muted" id="p2">Diálogo. Confiança. Respeito. Ciúme e controle não são prova de amor.</p>
-            <button class="btn ghost" data-copy="#p2">📋 Copiar</button>
-          </div>
-          <div class="card">
-            <b>Post 3 — Dica prática</b>
-            <p class="muted" id="p3">Se não houver um “sim” claro, a resposta é não. Combine limites antes de avançar.</p>
-            <button class="btn ghost" data-copy="#p3">📋 Copiar</button>
-          </div>
-          <div class="card">
-            <b>Legenda pronta + hashtags</b>
-            <p class="muted" id="p4">Sem consentimento, não há nós. Eu escolho respeito todos os dias. #ConsentimentoImporta #RespeitoÉBase #RelacionamentoSaudável #DigaSimAoRespeito</p>
-            <button class="btn ghost" data-copy="#p4">📋 Copiar</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPROMISSO -->
-    <section id="compromisso">
       <div class="container card">
-        <h2>Compromisso pelo Respeito</h2>
-        <p>Assumo o compromisso de <b>respeitar limites</b>, buscar <b>diálogo</b> e praticar <b>consentimento</b> em todas as minhas relações.</p>
-        <label style="display:inline-flex;align-items:center;gap:10px;margin-top:8px">
-          <input id="pledge" type="checkbox" style="width:18px;height:18px" />
-          <span>Eu respeito o “não”.</span>
-        </label>
-        <span id="pledge-badge" class="tag" style="display:none;margin-left:10px;background:#10b981">Compromisso assumido</span>
+        <h2>Como você está se sentindo agora?</h2>
+        <p class="muted">Envie sua mensagem anonimamente. Podemos sortear e mostrar uma mensagem aleatória para incentivar o diálogo.</p>
+        
+        <textarea id="msgInput" placeholder="Escreva sua mensagem aqui..." style="width:100%;padding:10px;border-radius:8px;border:1px solid #cbd5e1;margin-bottom:10px"></textarea>
+        <button id="sendMsgBtn" class="btn primary">Enviar Mensagem</button>
+
+        <div style="margin-top:20px">
+          <button id="showRandomMsgBtn" class="btn ghost">Sortear</button>
+          <div id="randomMsg" style="margin-top:16px;padding:14px;border-radius:10px;background:#f1f5f9;min-height:50px;font-weight:600"></div>
+        </div>
       </div>
     </section>
+  </main>
 
-    <!-- AJUDA -->
-    <section id="ajuda" style="padding: 40px 20px; background-color: #f9f9f9; font-family: Arial, sans-serif;">
+  <script>
+    // Armazenar mensagens
+    const messages = [];
+
+    const msgInput = document.getElementById('msgInput');
+    const sendBtn = document.getElementById('sendMsgBtn');
+    const showBtn = document.getElementById('showRandomMsgBtn');
+    const randomMsgDiv = document.getElementById('randomMsg');
+
+    // Enviar mensagem
+    sendBtn.addEventListener('click', () => {
+      const text = msgInput.value.trim();
+      if(text){
+        messages.push(text);
+        msgInput.value = '';
+        alert('Mensagem enviada com sucesso!');
+      } else {
+        alert('Por favor, escreva uma mensagem antes de enviar.');
+      }
+    });
+
+    // Sortear
+    showBtn.addEventListener('click', () => {
+      if(messages.length === 0){
+        randomMsgDiv.textContent = 'Nenhuma mensagem disponível ainda.';
+        return;
+      }
+      const idx = Math.floor(Math.random() * messages.length);
+      randomMsgDiv.textContent = messages[idx];
+    });
+  </script>
+
+<!--AJUDA-->
+<section id="ajuda" style="padding: 40px 20px; background-color: #f9f9f9; font-family: Arial, sans-serif;">
   <h2 style="text-align: center; font-size: 28px; color: #2b2b2b; margin-bottom: 25px;">
     <span style="color: #ff3366;">📌 Ajuda</span>
   </h2>
@@ -533,84 +542,5 @@ loadQuiz();
     </div>
   </div>
 </section>
-  </main>
-
-  <footer style="text-align:center;padding:20px 0;color:#64748b;font-size:14px">
-    © <span id="year"></span> Campanha — Consentimento & Relações Saudáveis. Feito com respeito e propósito.
-  </footer>
-
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Print poster
-    document.getElementById('btn-print')?.addEventListener('click', () => window.print());
-
-    // Copy helpers
-    function copyText(el){
-      const range = document.createRange();
-      range.selectNode(el);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-      try{document.execCommand('copy');}catch(e){}
-      sel.removeAllRanges();
-    }
-    document.querySelectorAll('[data-copy]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = document.querySelector(btn.getAttribute('data-copy'));
-        if(navigator.clipboard){navigator.clipboard.writeText(target.textContent)}else{copyText(target)}
-        alert('Copiado para a área de transferência!')
-      });
-    });
-
-    <!-- DINÂMICA DE MENSAGENS / APOIO -->
-<section id="apoio">
-  <div class="container card">
-    <h2>Como você está se sentindo agora?</h2>
-    <p class="muted">Escreva sua mensagem anonimamente. Vamos sortear uma para dar apoio ao vivo!</p>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <input id="msg-input" type="text" placeholder="Digite sua mensagem..." style="flex:1;padding:10px;border-radius:12px;border:1px solid #e5e7eb"/>
-      <button class="btn primary" id="send-msg">Enviar</button>
-      <button class="btn ghost" id="sort-msg">🎲 Sortear mensagem</button>
-    </div>
-    <div id="random-msg" style="margin-top:12px;padding:12px;background:#f0fdfa;border:1px dashed #99f6e4;border-radius:12px;display:none"></div>
-    <div style="margin-top:16px">
-      <p class="muted" style="margin-bottom:6px">Mensagens recebidas:</p>
-      <ul id="msg-list" class="clean"></ul>
-    </div>
-  </div>
-</section>
-
-<script>
-  const msgInput = document.getElementById('apoio-msg-input');
-  const sendBtn = document.getElementById('apoio-send-msg');
-  const msgList = document.getElementById('apoio-msg-list');
-  const sortBtn = document.getElementById('apoio-sort-msg');
-  const randomMsg = document.getElementById('apoio-random-msg');
-
-  const messages = [];
-
-  // Enviar mensagem
-  sendBtn.addEventListener('click', () => {
-    const msg = msgInput.value.trim();
-    if (!msg) return alert('Digite uma mensagem!');
-    messages.push(msg);
-
-    const li = document.createElement('li');
-    li.textContent = msg;
-    msgList.appendChild(li);
-
-    msgInput.value = '';
-  });
-
-  // Sortear mensagem
-  sortBtn.addEventListener('click', () => {
-    if (!messages.length) return alert('Nenhuma mensagem enviada ainda!');
-    const index = Math.floor(Math.random() * messages.length);
-    randomMsg.style.display = 'block';
-    randomMsg.textContent = messages[index];
-  });
-</script>
 </body>
 </html>
