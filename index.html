@@ -421,6 +421,24 @@ function nextQuiz() {
 
 loadQuiz();
 </script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+<script>
+  // Configuração do Firebase
+  const firebaseConfig = {
+    apiKey: "SUA_CHAVE_AQUI",
+    authDomain: "seu-projeto.firebaseapp.com",
+    projectId: "seu-projeto",
+    storageBucket: "seu-projeto.appspot.com",
+    messagingSenderId: "1234567890",
+    appId: "1:1234567890:web:abcdef123456"
+  };
+
+  // Inicializar Firebase e Firestore
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
 
     <!-- MENSAGENS CORRIGIDAS -->
     <section id="mensagens">
@@ -438,38 +456,51 @@ loadQuiz();
       </div>
     </section>
   </main>
+  <!--MENSAGENS-->
+<script>
+  const msgInput = document.getElementById('msgInput');
+  const sendBtn = document.getElementById('sendMsgBtn');
+  const showBtn = document.getElementById('showRandomMsgBtn');
+  const randomMsgDiv = document.getElementById('randomMsg');
 
-  <script>
-    // Armazenar mensagens
-    const messages = [];
+  // Enviar mensagem para o Firestore
+  sendBtn.addEventListener('click', async () => {
+    const text = msgInput.value.trim();
+    if (!text) {
+      alert('Por favor, escreva uma mensagem antes de enviar.');
+      return;
+    }
 
-    const msgInput = document.getElementById('msgInput');
-    const sendBtn = document.getElementById('sendMsgBtn');
-    const showBtn = document.getElementById('showRandomMsgBtn');
-    const randomMsgDiv = document.getElementById('randomMsg');
+    try {
+      await db.collection("mensagens").add({
+        texto: text,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      msgInput.value = '';
+      alert('Mensagem enviada com sucesso!');
+    } catch (error) {
+      console.error("Erro ao enviar mensagem: ", error);
+      alert('Erro ao enviar. Tente novamente.');
+    }
+  });
 
-    // Enviar mensagem
-    sendBtn.addEventListener('click', () => {
-      const text = msgInput.value.trim();
-      if(text){
-        messages.push(text);
-        msgInput.value = '';
-        alert('Mensagem enviada com sucesso!');
-      } else {
-        alert('Por favor, escreva uma mensagem antes de enviar.');
-      }
-    });
-
-    // Sortear
-    showBtn.addEventListener('click', () => {
-      if(messages.length === 0){
-        randomMsgDiv.textContent = 'Nenhuma mensagem disponível ainda.';
+  // Sortear mensagem aleatória do Firestore
+  showBtn.addEventListener('click', async () => {
+    try {
+      const snapshot = await db.collection("mensagens").get();
+      if (snapshot.empty) {
+        randomMsgDiv.textContent = "Nenhuma mensagem disponível ainda.";
         return;
       }
-      const idx = Math.floor(Math.random() * messages.length);
-      randomMsgDiv.textContent = messages[idx];
-    });
-  </script>
+      const allMessages = snapshot.docs.map(doc => doc.data().texto);
+      const idx = Math.floor(Math.random() * allMessages.length);
+      randomMsgDiv.textContent = allMessages[idx];
+    } catch (error) {
+      console.error("Erro ao buscar mensagens: ", error);
+      alert('Erro ao sortear. Tente novamente.');
+    }
+  });
+</script>
 
 <!--AJUDA-->
 <section id="ajuda" style="padding: 40px 20px; background-color: #f9f9f9; font-family: Arial, sans-serif;">
@@ -526,20 +557,17 @@ loadQuiz();
       ">💬 Falar no WhatsApp</a>
     </div>
 
-    <!-- Card 3 -->
-    <div style="
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    " onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-      <h3 style="font-size: 20px; color: #ff3366; margin-bottom: 10px;">📖 FAQ</h3>
-      <p style="color: #555; font-size: 15px;">
-        Confira as respostas para as dúvidas mais frequentes na nossa
-        <a href="#faq" style="color: #ff3366; text-decoration: none; font-weight: bold;">página de FAQ</a>.
-      </p>
-    </div>
+<!-- Card do CVV (substituindo o FAQ) -->
+<div class="card">
+  <h3>🧡 Precisa conversar?</h3>
+  <p>
+    O <strong>CVV</strong> (Centro de Valorização da Vida) oferece apoio emocional gratuito,
+    anônimo e confidencial.
+  </p>
+  <a href="https://www.cvv.org.br/" target="_blank" class="btn">
+    💬 Acesse o site do CVV
+  </a>
+</div>
   </div>
 </section>
 </body>
